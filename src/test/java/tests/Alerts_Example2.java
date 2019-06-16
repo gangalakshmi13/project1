@@ -15,6 +15,30 @@ public class Alerts_Example2 {
 	public void test() throws Exception {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver=new ChromeDriver();
+		driver.navigate().to("http://demo.guru99.com/test/");
+		
+		driver.findElement(By.xpath("//input[@name='submit']")).click();
+		Thread.sleep(5000);
+		System.out.println(driver.switchTo().alert().getText());
+		Thread.sleep(5000);
+		driver.switchTo().alert().accept();
+		Thread.sleep(5000);
+		System.out.println(driver.switchTo().alert().getText());
+		Thread.sleep(5000);
+		driver.switchTo().alert().accept();
+		Thread.sleep(5000);
+		driver.quit();
+		
+		
+		
+
+	}
+
+	
+	@Test
+	public void test1() throws Exception {
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver=new ChromeDriver();
 		driver.get("http://demo.guru99.com/test/delete_customer.php");
 		driver.manage().window().maximize();
 		driver.findElement(By.xpath("//input[@name='submit']")).click();
